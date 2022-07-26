@@ -1,7 +1,6 @@
 # AssembleRL: Learning to Assemble Furniture from Their Point Clouds
 
-This repo provides the official implementation of the IROS 2022 paper "AssembleRL: Learning to Assemble Furniture from Their Point Clouds" by  
-Özgür Aslan, Burak Bolat, Batuhan Bal, Tuğba Tümer, Erol Şahin, and Sinan Kalkan.
+This repo provides the official implementation of the IROS 2022 paper "AssembleRL: Learning to Assemble Furniture from Their Point Clouds" by   Özgür Aslan, Burak Bolat, Batuhan Bal, Tuğba Tümer, Erol Şahin, and Sinan Kalkan.
 
 <img src="docs/imgs/intro.png" alt="intro" width="40%"/>
 
