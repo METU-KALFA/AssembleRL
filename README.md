@@ -8,7 +8,9 @@ This repo provides the official implementation of the IROS 2022 paper "AssembleR
 
 We propose to use only the fully assembled point cloud of the furniture and the mesh models of its parts, to learn the assembly plan. Specifically, we introduce a novel reward function that evaluates the match between the point cloud of the partially assembled furniture against its fully assembled view using two measures that evaluate the *incorrectness* and *incompleteness*. We train a graph-convolutional neural network with our novel reward signal, combining the incorrectness and incompleteness measures, to learn the assembly plan as a policy that predicts which part pairs need to be connected via which of their connections. 
 
-## Dependencies
+## Running the Code
+
+### Dependencies
 - pytorch
 - pytorch-geometric
 - open3d
@@ -17,7 +19,7 @@ We propose to use only the fully assembled point cloud of the furniture and the 
 - numpy
 - networkx
 
-## File Structure
+### File Structure
 ```
 assembly_learning
 │
