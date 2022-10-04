@@ -19,10 +19,8 @@ from assembly_learning.utils import FurnitureCloud, IcpReward, T
 class AssemblyCloudBase(gym.Env):
 
     def __init__(self, **kwargs):
-        self.action_space_type = kwargs["as_type"]  
         self.reward_type = kwargs["rew_type"] 
         self._main_object_name = kwargs["main_object"] if "partial" in self.reward_type  else None
-        print("reward type:", self.reward_type)
         self.num_points = kwargs["pc_sample_size"]  
         self.partial_threshold_points = kwargs["points_threshold"] if "partial_th" in self.reward_type else None
         self.partial_threshold_num = kwargs["num_threshold"] if  "partial_th" in self.reward_type else None
@@ -47,12 +45,9 @@ class AssemblyCloudBase(gym.Env):
         self._cc_obj_pose_dict = self._cloud._get_cc_obj_pose_dict()
         self._conn_site_dict = self._get_conn_site_dict()
         self.icp_reward_point = IcpReward(self.furniture_id, num_samples=self.num_points)
-        print("threshold:", self.partial_threshold_num)
 
-        if self.action_space_type == 360:
-            self.pair_dict = self._get_pair_dict_360()
-        else:
-            raise Exception("Wrong action space type")
+        self.pair_dict = self._get_pair_dict()
+
 
         self.first_reset = True
         self.first_t2s = None 
@@ -76,10 +71,7 @@ class AssemblyCloudBase(gym.Env):
     @property
     def dof(self):
         n = self.n_objects
-        if self.action_space_type == 10:
-            dof = int(0.5*n*(n-1))
-        elif self.action_space_type == 360:
-            dof = int(0.5*n*(n-1)*6*6) 
+        dof = int(0.5*n*(n-1)*6*6) 
         return dof
 
     @property
@@ -207,7 +199,7 @@ class AssemblyCloudBase(gym.Env):
                 self.adjacency_mat[i, cs_id] = 1
                 self.adjacency_mat[cs_id, i] = 1
 
-    def _get_pair_dict_360(self):
+    def _get_pair_dict(self):
         n = self.n_objects
         pair_dict = {}
         k = 0
@@ -287,7 +279,6 @@ class AssemblyCloudBase(gym.Env):
                     rel_pose = self._conn_site_rel_pose_dict[site_name]
                     conn_site_dict[obj_name][k] = rel_pose
                     k+=1
-            print("Number of connsites:", k)
         return conn_site_dict
 
     def _get_obs(self):
