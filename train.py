@@ -52,7 +52,7 @@ policy_kwargs = dict(
                 activation_fn=torch.nn.ReLU,
                 net_arch=[dict(pi=[256, 256], vf=[256, 256])],
                 features_extractor_class=GraphFeatureExtractor,
-                features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)
+                features_extractor_kwargs=dict(features_dim=7*eval_env.n_objects*256, pooling=False),)
 
 model = PPO("MultiInputPolicy", env=env_name, learning_rate=args.lr, policy_kwargs=policy_kwargs, verbose=args.verbose)
 print("Start Training!")

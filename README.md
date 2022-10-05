@@ -2,7 +2,7 @@
 
 This repo provides the official implementation of the IROS 2022 paper "AssembleRL: Learning to Assemble Furniture from Their Point Clouds" by   Özgür Aslan, Burak Bolat, Batuhan Bal, Tuğba Tümer, Erol Şahin, and Sinan Kalkan.
 
-<img src="docs/imgs/intro.png" alt="intro" width="40%"/>
+<p align="center"><img src="docs/imgs/intro.png" alt="intro" width="40%"/></p>
 
 ## What is AssembleRL?
 
@@ -38,8 +38,25 @@ assembly_learning
 │    │─── reg_reward.py
 │    │─── transform_utils.py
 │
+│─── pointnet2.pt
 
 ```
+
+## Train and Test
+Pretrained Pointnet++ weight can be downloaded from [here](https://drive.google.com/drive/folders/1yD_1t5VYN32fOPhhBxyVxjIDIqtg8Ma0)  
+After download put the file under the [assembly_learning](./assembly_learning) folder.  
+
+For training [rl-baselines3-zoo](https://github.com/DLR-RM/rl-baselines3-zoo) can be used.  
+Also simple [train](train.py) and [test](test.py) files using [stable-baselines3](https://github.com/DLR-RM/stable-baselines3) are included.
+To train a model with spesific furniture and reward implementation:  
+```
+python train.py -f ivar -r partial_th
+```
+To test a trained model:
+```
+python test.py -f ivar -r partial_th
+```
+
 ## References
 
 The assembly learning environment includes:
