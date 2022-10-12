@@ -15,8 +15,7 @@ furniture_dict = {"agne": (1, "2_part2", 10, 5), "bernhard": (2, "2_part2", 10, 
                   "ivar": (4, "0_part0", 10, 5), "mikael": (5, "3_part3", 155, 5), "sivar": (6, "0_part0", 1, 5), 
                   "liden": (7, "9_part9", 10, 5), "swivel": (8, "3_chair_seat", 10, 5), "klubbo": (9, "5_part5", 30, 10), 
                   "lack": (10, "4_part4", 10, 10), "tvunit": (11, "4_part4", 150, 10)}
-# lack 10000
-# klubbo 10000
+
 parser = argparse.ArgumentParser(description='Train AssembleRL')
 parser.add_argument("-f", "--furniture", type=str, choices=list(furniture_dict.keys()), help="furniture model to train with")
 parser.add_argument("-r", "--reward", type=str, choices=reward_type_list, help="reward type")
