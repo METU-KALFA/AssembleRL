@@ -24,12 +24,13 @@ class AssemblyCloudFeatures(AssemblyCloudBase):
         return part_feature_dict
 
     def _reset_graph_data(self):
-        node_features = F.one_hot(torch.arange(0, self.n_objects + self.n_conn_sites*self.n_objects, 1), num_classes=self._nf_size)
-        node_features = node_features.float()
-        assert node_features.size(1) == self._nf_size
-        node_features = node_features.numpy()
+        cs_features = F.one_hot(torch.arange(0, self.n_conn_sites*self.n_objects, 1), num_classes=self._nf_size)
+        cs_features = cs_features.float().numpy()
+        assert cs_features.shape[1] == self._nf_size
+        node_features = np.zeros(((self.n_conn_sites+1)*self.n_objects, self._nf_size))
         for i, feature in enumerate(self.part_feature_dict.values()):
-            node_features[i * (1+ self.n_conn_sites)] = feature 
+            node_features[i] = feature 
+        node_features[self.n_objects:] = cs_features
         self.node_features = node_features
         self.adjacency_mat = np.zeros(((1+self.n_conn_sites)*self.n_objects, 
                                   (1+self.n_conn_sites)*self.n_objects), 
