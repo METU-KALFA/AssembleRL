@@ -42,7 +42,7 @@ assembly_learning
 
 ```
 
-## Train and Test
+### Train and Test
 Pretrained Pointnet++ weight can be downloaded from [here](https://drive.google.com/drive/folders/1yD_1t5VYN32fOPhhBxyVxjIDIqtg8Ma0)  
 After download put the file under the [assembly_learning](./assembly_learning) folder.  
 
@@ -56,7 +56,7 @@ To test a trained model:
 ```
 python test.py -f ivar -r partial_th
 ```
-
+There is also an example [colab notebook](https://colab.research.google.com/drive/1Nwp7bjJ9M3TaFOQVtj8oTtlYRBEfDeAw?usp=sharing) that includes istalling all dependencies, registering and creating the gym environment and training.
 ## References
 
 The assembly learning environment includes:

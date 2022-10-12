@@ -18,6 +18,9 @@ An illustration showing how the proposed measures and the reward values change o
 <h3 align="center">Quantitative Results</h3>
 
 <p align="center"><img src="imgs/results.png" alt="results" width="60%"/> </p>
+<strong>SRcon (Connection success rate):</strong> The ratio of correct connections done by the agent to the number of total correct connections.
+
+<strong>SRa (Furniture assembly success rate):</strong> The ratio of correctly assembled furniture to the total number of furniture.
 
 <h3 align="center">References</h3>
 
